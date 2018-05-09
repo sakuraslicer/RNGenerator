@@ -3,7 +3,6 @@
 
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -12,7 +11,6 @@ namespace genApp
 {
     class Generator
     {
-        public static int lineCountInFileTXT = 0;
         public static void Generate()
         {
             Int64 count = 0;
@@ -22,7 +20,7 @@ namespace genApp
 
                 #region Количество значений
                 CorrectInput:
-                Console.WriteLine("\nВведите количество уникальных значений (введите '9' для выхода в главное меню)");
+                Console.WriteLine("\nСколько уникальных значений сгенерировать?");
                 try
                 {
                     count = Convert.ToInt64(Console.ReadLine());
@@ -31,15 +29,15 @@ namespace genApp
                         Menu.MainMenu();
                     }
                 }
-                catch (FormatException)
+                catch (Exception)
                 {
-                    Console.WriteLine("\nВы ввели символы. Введите числовое значение");
+                    ErrorHandler.IncorrectString();
                     goto CorrectInput;
                 }
                 #endregion
 
                 #region Имя файла
-                Console.WriteLine("\nВведите имя файла для сохранения значений [без расширения файла]. (введите 9 для выхода в главное меню)");
+                Console.WriteLine("\nВведите имя файла [без расширения файла] для сохранения значений.");
                 string fileName = Console.ReadLine();
 
                 if (fileName == "9")
@@ -50,11 +48,11 @@ namespace genApp
 
                 #region Пароль от БД для проверки на уникальность
                 m300:
-                Console.WriteLine("\nВведите пароль для доступа к базе данных (для проверки на уникальность)");
+                Console.WriteLine("\nДля проверки на уникальность, введите пароль для доступа к базе данных)");
                 string password = Console.ReadLine();
 
-                conn.ConnectionString = "server=127.0.0.1; uid=root;" +
-                    "pwd =" + password + ";database=DaidoMetalRussiaDB";
+                conn.ConnectionString = "server = 127.0.0.1; uid = root; pwd = " + password + "; database = DaidoMetalRussiaDB";
+                //conn.ConnectionString = Connector.ConnectData.connection;
 
                 try
                 {
@@ -62,7 +60,9 @@ namespace genApp
                 }
                 catch (Exception)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nНекорректный пароль от базы данных");
+                    Console.ResetColor();
                     goto m300;
                 }
                 #endregion
@@ -126,7 +126,8 @@ namespace genApp
 
                 string[] MiddleArray;
                 string[] ResultArrayFromTXT = new string[count];
-                //получаем количество строк в файле
+
+                // Количество строк в файле
                 var reader2 = File.OpenText(Path.Combine(folder, fileName + ".txt"));
 
                 for (int g = 0; g < count; g++)
@@ -135,11 +136,10 @@ namespace genApp
                     MiddleArray = tmp.Split(' ');
                     tmp = MiddleArray[0] + MiddleArray[1] + MiddleArray[2] + MiddleArray[3];
                     ResultArrayFromTXT[g] = tmp;
-                    //lineCountInFileTXT++;
                 }
                 reader2.Close();
 
-                // количество записей в БД
+                // Количество записей в БД
                 MySqlCommand CountCode = new MySqlCommand("SELECT COUNT(*) FROM code;");
                 CountCode.Connection = conn;
                 CountCode.ExecuteNonQuery();
@@ -148,14 +148,11 @@ namespace genApp
                 CountAdapter.Fill(CountCodeTable);
                 int CountRowInDB = Convert.ToInt32(CountCodeTable.Rows[0].ItemArray.GetValue(0));
 
-//---------------------------------------------------------------------------------------------------------
-
                 TextWriter writerTxt2 = new StreamWriter(Path.Combine(folder, fileName + "_" + DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year + ".txt"));
                 int EqualsNumber = 0;
                 for (int a = 0; a < count; a++)
                 {
-                    //массив значений из БД
-                    //string[] CodeArray = new string[CountRow];
+                    // Массив значений из БД
                     MySqlCommand CodeSelect = new MySqlCommand("SELECT code_number FROM code WHERE code_number = " + ResultArrayFromTXT[a] + ";");
                     CodeSelect.Connection = conn;
                     object result = CodeSelect.ExecuteScalar();
@@ -180,19 +177,13 @@ namespace genApp
                 Console.WriteLine("Удалено записей: " + EqualsNumber + ".");
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\nГенерация успешно завершена");
+                Console.WriteLine("\nГенерация успешно завершена\n\n");
                 Console.ResetColor();
             }
-            #region Catch
-            catch (MySql.Data.MySqlClient.MySqlException ex)
+            catch (Exception)
             {
-                Console.WriteLine("Ошибка: " + ex.Number + " has occurred: " + ex.Message, "Ошибка");
+                ErrorHandler.IncorrectString();
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message.ToString());
-            }
-            #endregion
         }
     }
 }

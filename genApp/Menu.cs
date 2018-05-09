@@ -11,14 +11,13 @@ namespace genApp
         {
             try
             {
-                Console.WriteLine("");
-                Console.WriteLine("\tЧТО ВЫ ХОТИТЕ ВЫПОЛНИТЬ?");
-                Console.WriteLine("1 - Сгенерировать значения (коды)");
-                Console.WriteLine("2 - Импортировать из файла в базу данных");
-                Console.WriteLine("3 - Выход");
-                Int64 target = 0;
-
-                target = Convert.ToInt64(Console.ReadLine());
+                Console.WriteLine("\tЧТО НЕОБХОДИМО ВЫПОЛНИТЬ?\n");
+                Console.WriteLine("1 - Генерация");
+                Console.WriteLine("2 - Импорт");
+                Console.WriteLine("3 - Удаление");
+                Console.WriteLine("4 - Выход");
+                Int16 target = 0;
+                target = Convert.ToInt16(Console.ReadLine());
 
                 switch (target)
                 {
@@ -31,28 +30,22 @@ namespace genApp
                         break;
 
                     case 3:
+                        Deleter.Delete();
+                        break;
+
+                    case 4:
                         Environment.Exit(1);
                         break;
 
                     default:
-                        Console.WriteLine("\nВы ничего не выбрали");
+                        ErrorHandler.IncorrectString();
                         break;
                 }
             }
-            #region Catch
-            catch (OutOfMemoryException)
+            catch (Exception)
             {
-                Console.WriteLine("\nВведено слишком большое число. \nВведите 1, 2 или 3");
+                ErrorHandler.IncorrectString();
             }
-            catch (FormatException)
-            {
-                Console.WriteLine("\nВведены символы. \nВведите 1, 2 или 3");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("\nError: " + ex.Message.ToString());
-            }
-            #endregion
         }
     }
 }
