@@ -92,9 +92,14 @@ namespace genApp
                             first = second;
                             second = middle;
                         }
-                        else
+                        else if(ReWrite == "n")
                         {
                             Console.WriteLine("Ошибка: " + first + " > " + second);
+                            goto ReWrite;
+                        }
+                        else
+                        {
+                            ErrorHandler.IncorrectString();
                             goto ReWrite;
                         }
                     }
