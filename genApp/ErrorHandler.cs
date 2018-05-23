@@ -16,7 +16,7 @@ namespace genApp
         public static void GeneralError()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nОшибка: \n");
+            Console.WriteLine("\nОшибка: некорректный ввод\n");
             Console.ResetColor();
         }
     }

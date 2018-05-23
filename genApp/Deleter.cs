@@ -44,7 +44,7 @@ namespace genApp
             Console.ResetColor();
 
             menu:
-            Console.WriteLine("1 - Очистить всю таблицу\n2 - Удалить диапазон кодов\n3 - Удалить файл из базы\n4 - Назад");
+            Console.WriteLine("\n1 - Очистить всю таблицу\n2 - Удалить диапазон кодов\n3 - Удалить файл из базы\n4 - Назад");
             Int32 target = Convert.ToInt32(Console.ReadLine());
 
             switch (target)
@@ -161,7 +161,7 @@ namespace genApp
                         goto EnterAgain;
                     }
                     break;
-                case 4: break;
+                case 4: Menu.MainMenu(); break;
                 default: break;
             }
         }

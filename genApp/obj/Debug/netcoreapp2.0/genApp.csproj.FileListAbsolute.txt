@@ -1,0 +1,11 @@
+C:\OpenServer\domains\RNGenerator\genApp\bin\Debug\netcoreapp2.0\genApp.deps.json
+C:\OpenServer\domains\RNGenerator\genApp\bin\Debug\netcoreapp2.0\genApp.runtimeconfig.json
+C:\OpenServer\domains\RNGenerator\genApp\bin\Debug\netcoreapp2.0\genApp.runtimeconfig.dev.json
+C:\OpenServer\domains\RNGenerator\genApp\bin\Debug\netcoreapp2.0\genApp.dll
+C:\OpenServer\domains\RNGenerator\genApp\bin\Debug\netcoreapp2.0\genApp.pdb
+C:\OpenServer\domains\RNGenerator\genApp\obj\Debug\netcoreapp2.0\genApp.csprojResolveAssemblyReference.cache
+C:\OpenServer\domains\RNGenerator\genApp\obj\Debug\netcoreapp2.0\genApp.csproj.CoreCompileInputs.cache
+C:\OpenServer\domains\RNGenerator\genApp\obj\Debug\netcoreapp2.0\genApp.AssemblyInfoInputs.cache
+C:\OpenServer\domains\RNGenerator\genApp\obj\Debug\netcoreapp2.0\genApp.AssemblyInfo.cs
+C:\OpenServer\domains\RNGenerator\genApp\obj\Debug\netcoreapp2.0\genApp.dll
+C:\OpenServer\domains\RNGenerator\genApp\obj\Debug\netcoreapp2.0\genApp.pdb

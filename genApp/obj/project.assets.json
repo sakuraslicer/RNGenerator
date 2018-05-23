@@ -2021,7 +2021,7 @@
       ]
     },
     "System.Text.Encoding.CodePages/4.0.1": {
-      "sha512": "k0L2qxk1JKLi5uFQKTyqu9aUIzHmzEnXHd9jmDqUBoJ1IyZksRuJq4of3xs89uG+X+J5NB2mkuX9u8igxE9cIg==",
+      "sha512": "h4z6rrA/hxWf4655D18IIZ0eaLRa3tQC/j+e26W+VinIHY0l07iEXaAvO0YSYq3MvCjMYy8Zs5AdC1sxNQOB7Q==",
       "type": "package",
       "path": "system.text.encoding.codepages/4.0.1",
       "files": [
@@ -2200,23 +2200,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KillEmAll\\.nuget\\packages\\": {},
+    "C:\\Users\\teacher\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KillEmAll\\Desktop\\Generator\\genApp\\genApp.csproj",
+      "projectUniqueName": "C:\\OpenServer\\domains\\RNGenerator\\genApp\\genApp.csproj",
       "projectName": "genApp",
-      "projectPath": "C:\\Users\\KillEmAll\\Desktop\\Generator\\genApp\\genApp.csproj",
-      "packagesPath": "C:\\Users\\KillEmAll\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KillEmAll\\Desktop\\Generator\\genApp\\obj\\",
+      "projectPath": "C:\\OpenServer\\domains\\RNGenerator\\genApp\\genApp.csproj",
+      "packagesPath": "C:\\Users\\teacher\\.nuget\\packages\\",
+      "outputPath": "C:\\OpenServer\\domains\\RNGenerator\\genApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\KillEmAll\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\teacher\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

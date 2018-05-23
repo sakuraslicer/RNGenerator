@@ -173,6 +173,10 @@ namespace genApp
                 writerTxt2.Close();
                 conn.Close();
 
+                // Оставить только уникальный файл. Удалить файл без сравнения с БД
+                File.Delete("files/" + fileName + ".txt");
+                ;
+                
                 Console.WriteLine("\nГлобальная проверка на уникальность прошла успешно. Количество совпадений: " + EqualsNumber + ".");
                 Console.WriteLine("Удалено записей: " + EqualsNumber + ".");
 
