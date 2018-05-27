@@ -1,2 +1,0 @@
-dotnet genApp.dll
-@pause
